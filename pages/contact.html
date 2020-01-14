@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- the meta tags -->
+        <meta name="description" content="a form to contact me and ask me question">
+        <meta name="keywords" content="portfolio,technology,cv,gallery,blog,gallery,research">
+        <meta name="author" content="Anwesh Dahal">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- links to external css -->
+        <link rel="stylesheet" href="../css/main.css">
+        <!-- internal stylesheet -->
+        <style>
+            /* declaring the variables */
+            :root{
+                --def-border-width: 2px;
+                --primary-color:#222222;
+                --bg-color: #444;
+                --text-color-dark: #1d1d1d;
+                --primary-border-color: #ebebeb;
+                --secondary-color: #ffffff;
+                --tert-color: #eee;
+                --border-color: #c2c1c1;
+                --roboto-font: 'Roboto', sans-serif;
+                --playfair-font: 'Playfair Display', serif;
+            }
+
+            /* the main container for body content */
+            .container{
+                width: 80%;
+            }
+
+            /* the form */
+            /* common value for inputs */
+            .input{
+                margin-top: 15px;
+                background-color: transparent;
+                color: var(--secondary-color);
+                font-size: 1.15rem;
+            }
+
+            /* the container for form */
+            .form{
+                display: flex;
+                flex-direction: row-reverse;
+                width: 90%;
+                margin-bottom: 25px;
+            }
+
+            /* the form itself */
+            form{
+                margin-top: 20px;
+                padding: 15px 20px 40px 20px;
+                color: var(--secondary-color);
+                background-color: var(--primary-color);
+                border: var(--primary-color) solid 1px;
+                border-radius: 15px;
+            }
+            /* the dropdown menu */
+            .optionsMenu{
+                color: var(--primary-color);
+                background-color: var(--secondary-color);
+                padding: 5px;
+
+            }
+
+
+            /* the text area */
+            textarea{
+                resize: none;
+                font: var(--roboto-font);
+                overflow: hidden;
+            }
+
+            /* the text box */
+            .textBox{
+                border-bottom: var(--bg-color) solid var(--def-border-width);
+                margin-bottom: 5px;
+                padding: 5px;
+            }
+
+            /* the labels inside the form */
+            .label{
+                font-size: 1.5rem;
+                margin: 20px 0 0 0;
+                padding: 0;
+            }
+
+            /* small card for optional contact */
+            .mailCard{
+                margin: auto auto;
+                width: 100%;
+            }
+
+            .mailCard .myEmail{
+                display: flex;
+                flex-direction: row;
+                margin: 25px auto 30px auto;
+            }
+
+            /* the @ logo */
+            .mailCard .myEmail .left{
+                padding: 10px 10px 0 10px;
+                border-right: var(--primary-color) solid 5px; 
+                height: 100%; 
+                margin: 0 5px 0 5px;
+            }
+
+            /* the email */
+            .mailCard .myEmail .right{
+                width: 60%; 
+                padding: 14px; 
+                text-align: justify;
+                background-color: var(--primary-border-color);
+            }
+
+            /* the submit button */
+            .submitButton{
+                text-align: center;
+                width: 100%;
+                font-size: 2rem;
+                color: var(--text-color-dark);
+                background-color: var(--secondary-color);
+                padding: 5px;
+                margin: 15px 0 15px 0;
+                border-radius: 7px;
+            }
+
+            /* the error message */
+            .alert{
+                font-size: 20px;
+            }
+
+            /* text style for error message */
+            .error{
+                background-color: #ff747b;
+                color: #800000;
+            }
+        </style>
+        <!-- link to external javascript -->
+        <script src="../js/main.js"></script>
+        <title>Contact</title>
+    </head>
+
+    <body>
+        <!-- the header that contains the page name and nav links -->
+        <div class="header">
+            <div class="logo">
+                Contact
+            </div>
+            <!-- navigation menu -->
+            <div class="nav">
+                <a href="../index.html">Home</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="research.html">Research</a>
+                <a href="#">Contact Me</a>
+                <a href="gallery.html">Gallery</a>
+            </div>
+        </div>
+
+        <!-- The main Contents of the page -->
+        <div class="mainContent">
+            <div class="container form"> 
+                <div class="formContaier" style="width: 62%;">
+                    <h1 class="title">Ask me Something</h1>
+                    <form name="contactForm"action="" method="" onsubmit="return formValidation()">
+                        <h3 class="label">
+                            Hello, My name is
+                        </h3>
+                        <!-- text input for full name -->
+                        <input type="text" name="fullName" id="name" class="input textBox" size="40" placeholder="Full Name">
+                        <br>
+                        <h3 class="label">
+                            I am
+                        </h3>
+                        <!-- radio button for identity -->
+                        <input type="radio" name="occp" value="student" id="aStudent" class="input">&nbsp;a Student <br>
+                        <input type="radio" name="occp" value="curious" id="justCurious" class="input" checked="checked">&nbsp;Just Curious
+                        <br>
+                        <h3 class="label">
+                            I wanted to know about
+                        </h3>
+                        <!-- dropdown you question type -->
+                        <select name="queryType" id="questionType" class="input optionsMenu">
+                            <option value="general" id="option1">General Stuff</option>
+                            <option value="projects" id="option2">Projects</option>
+                            <option value="employment" id="option3">Employment and Career</option>
+                        </select>
+                        <br>
+                        <h3 class="label">And my question is</h3>
+                        <!-- text area for question -->
+                        <textarea name="question" id="query" cols="32" rows="8" class="input textBox" maxlength="225"
+                            placeholder="Your Question" onkeydown="characterCounter(this)"></textarea>
+                        <br>
+                        <caption>Characters Left:&nbsp; <span id="character"></span> </caption>
+                        <br>
+                        <h3 class="label">
+                            You can email me at
+                        </h3>
+                        <!-- email input -->
+                        <input type="text" name="email" id="emailAddress" class="input textBox" placeholder="Email" size="40">
+                        <br>
+                        <!-- the submit button -->
+                        <button type="submit" class="submitButton">Submit</button>
+                        <!-- the error message -->
+                        <div class="alert error" id="messageBox">
+                        </div>
+                    </form>
+                </div>
+                <div class="mailCard">
+                    <div class="myEmail">
+                        <!-- the @ symbol -->
+                        <div class="left">
+                            <img src="../img/Font Awesome/at.svg" alt="" height="100px" style="opacity: 0.95;">
+                        </div>
+                        <!-- description on optional contact -->
+                        <div class="right">
+                            If you don't want to enter your details here you can email me at:<br>
+                            <!-- mailto is used to link an email address -->
+                            <a href="mailto:np01cp4a190022@islingtoncollege.edu.np" style="color: #202020;font-weight: bold;">
+                                np01cp4a190022@islingtoncollege.edu.np
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- the footer -->
+        <div class="footer">
+            <div class="me">
+                2020 Anwesh Dahal
+            </div>
+            <div class="goUp">
+                <a href="#" class="goUpButton">
+                    &#9651;
+                </a>
+            </div>
+        </div>
+    </body>
+</html>

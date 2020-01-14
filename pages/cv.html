@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- meta tags -->
+    <meta name="description" content="My portfolio and blog about technology">
+    <meta name="keywords" content="portfolio,technology,cv,gallery,blog">
+    <meta name="author" content="Anwesh Dahal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Internal CSS -->
+    <style>
+        /* declaring the global variables */
+        :root{
+            --def-border-width: 2px;
+            --bg-color: #444;
+            --text-color-dark: #232323;
+            --primary-border-color: #a5a5a5;
+            --tert-color: #eee;
+        }
+
+        /* linking the Genericons fonts */
+        @font-face {
+            font-family: 'Genericons';
+            src: url('../fonts/Genericons/genericons-regular-webfont.woff')format('woff'),
+            url('../fonts/Genericons/genericons-regulat-webfont-eot')format('truetype');
+        }
+
+        /* styling for the top banner */
+        .banner{
+            margin-bottom: 10px;
+            background-image: url(../img/Banner.png);
+            height: 300px;
+            text-align: center;
+            color: var(--secondary-color);
+            padding-top: 50px;
+            font-family: var(--roboto-slab-font);
+        }
+
+        .banner h1{
+            font-size: 4rem;
+        }
+
+        .banner h2{
+            font-size: 1.5rem;
+        }
+
+
+        .banner h3{
+            font-size: 1.3rem;
+            font-weight: normal;
+        }
+
+        .cvTitle{
+            font-size: 4rem;
+        }
+        /* styling the hidden list */
+        .interests{
+            height: 39px;
+            font-size: 2rem;
+            height: 39px;
+            font-weight: bold;
+            padding-right: 5px;
+        }
+
+        /* styling for the internal links */
+        .navContainer{
+            width: 70%;
+            margin: 30px auto;
+        }
+
+        .internalNavLinks{
+            display: flex;
+            flex-direction: row;
+            background-color: var(--primary-color);
+            padding: 10px 5px 10px 5px ;
+            border-radius: 8px;
+            box-shadow: 3px 3px 5px var(--bg-color);
+            text-align: center;
+        }
+
+        .internalNavLinks .inNavBtn{
+            width: 25%;
+            font-size: 1.2rem;
+            padding: 0 20px;
+            text-decoration: none;
+            color: var(--tert-color);
+            font-family: Arial, Helvetica, sans-serif;
+            border-right: var(--primary-border-color) solid 1px;
+            text-align: center;
+            transition: color 0.3s ease-in-out 0.1s;
+        }
+
+        .inNavBtn:hover{
+            color: #fff;
+        }
+
+        /* shaping the container according to our need */
+        .container{
+            width: 800px;
+            margin: 30px auto;
+        }
+
+        /* the about portion */
+        .containerContent{
+            display: flex;
+            flex-direction: row;
+        }
+        /* Portfolio Photo */
+        .myImg{
+            width: 50%;
+        }
+
+        .myImg img{
+            width: 90%;
+            border-bottom-left-radius: 90px;
+            border-top-right-radius: 90px;
+            box-shadow: 5px 5px 10px #777;
+        }
+
+        .contents{
+            width: 50%;
+        }
+        /* the information section */
+        .contents .info{
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .contents .details{
+            height: 25%;
+            vertical-align: middle;
+            border-bottom: var(--primary-border-color) solid var(--def-border-width);
+            padding-top: 10px;
+        } 
+
+        .contents .details .attribute{
+            margin-bottom: 10px;
+        }
+
+        table,tr,td{
+            border: var(--bg-color) solid 1px;
+            border-collapse: collapse;
+        }
+        /* the soft skill section */
+        .skillTable{
+            width: 100%;
+            margin: 15px auto 0 auto;
+        }
+
+        /* default value for the table data */
+        .skillTable td{
+            font-size: 20px;
+            padding: 10px;
+        }
+
+
+        .skillTable .star{
+            background-color: var(--text-color-dark);
+            text-align: center;
+        }
+
+        .skillTable .star .full{
+            color: var(--tert-color);
+        }
+
+        .skillTable .star .empty{
+            color: var(--bg-color);
+        }
+
+        /* the qualifications section */
+        /* title of qualification section */
+        .qualifications .title{
+            text-align: right;
+        }
+        .qualifications{
+            padding-bottom: 20px;
+        }
+        .certs{
+            list-style-type: none;
+
+        }
+        .certs .tabs{
+            margin: auto 0;
+            color: var(--text-color-dark);
+            
+        }
+        .qua h2{
+            font-size: 2rem;
+            margin: 0 0 10px 0;
+            font-family: var(--playfair-font);
+            font-weight: normal;
+            vertical-align: middle;
+        }
+
+        .qua p{
+            font-size: 1rem;
+            border: 0;
+            padding: 0;
+        }
+
+
+        .bRight, .bLeft{
+            padding: 15px;
+        }
+
+        .bRight{
+            text-align: right;
+            border-right: var(--primary-border-color) solid var(--def-border-width);
+            border-bottom: var(--primary-border-color) solid var(--def-border-width);
+        }
+
+        .bLeft{
+            border-left: var(--primary-border-color) solid var(--def-border-width);
+            border-bottom: var(--primary-border-color) solid var(--def-border-width);
+        }
+
+        /* the myWorks protion */
+        .card{
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            padding: 20px 10px;
+        }
+
+        /* the date and the title of the work */
+        .date, .title2{
+            font-family: var(--playfair-font); 
+        }
+
+        .date{
+            width: 100%;
+            font-size: 2rem; 
+            font-weight: normal;
+        }
+
+        .title2{
+            font-size: 3rem; 
+        }
+
+        .workCards .info{
+            width: 30%;
+        }
+
+        /* description of the work */
+        .desc{
+            margin-top: 15px;
+        }
+        /* Accordion Menu */
+        .accordionContainer{
+            width: 780px;
+            margin: 20px auto;
+        }
+
+        .accordion{
+            background-color: var(--primary-color);
+            width: 100%;
+            height: 200px;
+            display:block;
+            list-style-type: none;
+            overflow: hidden;
+            /* there exists a white space between every li element to remove this we set
+            the font size to zero and manually set the individual font size of the components of the accordion */
+            font-size: 0;
+        }
+
+        .tab{
+            display: inline-block;
+            background-color: var(--bg-color);
+            border-right: #555 solid 1px;
+            width: 80px;
+            height: 200px;
+            overflow: hidden;
+            position: relative;
+            margin: 0px;
+            transition: all 0.4s ease-in-out 0.1s;
+        }
+
+        /* increases the width of the tab on hover */
+        .tab:hover{
+            width: 460px;
+            border-right: var(--secondary-color) solid 1px;
+        }
+
+        /* change the site logo on hover */
+        .tab:hover .social a::before{
+            margin-left: -100px;
+        }
+
+        .tab:hover .social a::after{
+            margin-left: 0px;
+        }
+
+        .tab .content{
+            background-color: var(--tert-color);
+            width: 380px;
+            height: 200px;
+            margin-left: 80px;
+            position: relative;
+            padding: 40px 0px 0px 15px;
+        }
+
+        .tab .content h1{
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .tab .content p{
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .social a::before,
+        .social a::after{
+            /* transition is uses to set a behaviousr of how the content will change */
+            transition: all 0.4s ease-in-out 0.1s;
+            width: 80px;
+            height: 200px;
+            position: absolute;
+            text-indent: 0;
+            padding-top: 90px;
+            /* font: normal 30px 'Font Awesome 5 Brands'; */
+            font: normal 35px 'Genericons';
+            color: var(--secondary-color);
+        }
+
+        .social a::after{
+            padding-top: 80px;
+            font-size: 48px;
+            margin-left: 85px;
+        }
+
+
+        .youtube a::before,
+        .youtube a::after{
+            /* \fxxx is the character code of the respective character in the Genericons Library */
+            content:'\f213';
+            padding-left: 22px;
+        }
+
+        .youtube a::after{
+            background-color: #ff0000;
+            padding-left: 15px;
+        }
+
+        .facebook a::before,
+        .facebook a::after{
+            content:'\f204';
+            padding-left: 23px;
+        }
+
+        .facebook a::after{
+            background-color: #3b5999;
+            padding-left: 18px;
+        }
+
+        .twitter a::before,
+        .twitter a::after{
+            content: '\f202';
+            padding-left: 25px;
+        }
+
+        .twitter a::after{
+            background-color: #1da1f3;
+            padding-left: 20px;
+        }
+
+        .reddit a::before{
+            font-size: 38px;
+        }
+        .reddit a::before,
+        .reddit a::after{
+            content: '\f222';
+            padding-left: 20px;
+
+        }
+
+        .reddit a::after{
+            background-color: #ff4500;
+            padding-left: 17px;
+        }
+
+        .instagram a::before,
+        .instagram a::after{
+            content:'\f215';
+            padding-left: 23px;
+        }
+
+        .instagram a::after{
+            background-image: linear-gradient(to bottom, #ff00e9, #ff00be, #ff0096, #ff0071, #ff0051, #ff2240, #ff372c, #ff4a12, #ff6502, #ff7d00, #ff9200, #ffa600);
+            padding-left: 18px;
+        }
+    </style>
+    <!-- the external style sheets for the page -->
+    <!-- the main.css contains the style that maintains a consistent theme throught the site -->
+    <link rel="stylesheet" href="../css/main.css">
+    <!-- the title of the page -->
+    <title>CV</title>
+</head>
+<body>
+    <!-- the header that contains the page name and nav links -->
+    <div class="header">
+        <!-- the name of the current page -->
+        <div class="logo">
+            CV
+        </div>
+        <!-- navigation links -->
+        <div class="nav">
+            <a href="../index.html">Home</a>
+            <a href="#">CV</a>
+            <a href="blog.html">Blog</a>
+            <a href="research.html">Research</a>
+            <a href="contact.html">Contact Me</a>
+            <a href="gallery.html">Gallery</a>
+        </div>
+    </div>
+
+    <!-- The main Contents of the page -->
+    <div class="mainContent">
+        <!-- Greeting Banner -->
+        <div class="banner">
+                <h1 class="greet">Hello!</h1>
+                <h2 class="intro">My Name is Anwesh Dahal</h2>
+                <h3 class="about">I Am A</h3>
+                <!-- a simple widget to scroll through my interests -->
+                <p id="interests" class="interests">
+                </p>
+        </div>
+        <!-- links to navigate internally -->
+        <div class="navContainer">
+            <div class="internalNavLinks">
+                <a href="#aboutMe" class="inNavBtn">
+                    About Me
+                </a>
+                <a href="#mySoftSkills" class="inNavBtn">
+                    Skills
+                </a>
+                
+                <a href="#myQualifications" class="inNavBtn">
+                    Qualification
+                </a>
+                <a href="#myWorks" class="inNavBtn">
+                    My Works
+                </a>
+                <a href="#myContacts" class="inNavBtn" style="border: none;">
+                    My Social Media
+                </a>
+            </div>
+        </div>
+        <!-- the about section -->
+        <div class="container about">
+            <!-- title for the section -->
+            <h1 class="title cvTitle" id="aboutMe">About Me</h1>
+            <div class="containerContent" style="margin-top: 15px;">
+                <div class="myImg">
+                    <img src="../img/photo2.png" alt="">
+                </div>
+                <div class="contents">
+                    <ul class="info">
+                        <li class="details">
+                            <div class="attribute">
+                                Name:
+                            </div>
+                            <div class="data">
+                                Anwesh Dahal
+                            </div>
+                        </li>
+                        <li class="details">
+                            <div class="attribute">
+                                Address:
+                            </div>
+                            <div class="data">
+                                Budhiganga - 01 , Morang, Nepal
+                            </div>
+                        </li>
+                        <li class="details">
+                            <div class="attribute">
+                                Phone Number:
+                            </div>
+                            <div class="data">
+                                <a href="tel:+9779807038870">+9779807038870</a>
+                            </div>
+                        </li>
+                        <li class="details">
+                            <div class="attribute">
+                                Email:
+                            </div>
+                            <div class="data">
+                                <a href="mailto:np01cp4a190022@islingtoncollege.edu.np">np01cp4a190022@islingtoncollege.edu.np</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Soft Skills Section -->
+        <div class="container softSkills" >
+            <h1 class="title cvTitle" id="mySoftSkills" style="text-align: right;">Soft Skills</h1>
+            <!-- table is used to properly arrange the skills and my competence -->
+            <table class="skillTable">
+                <tr>
+                    <td>Communication</td>
+                    <td class="star">
+                        <span class="full">&starf;&starf;&starf;</span><span class="empty">&starf;&starf;</span></td>
+                </tr>
+                <tr>
+                    <td>Critical Thinking</td>
+                    <td class="star">
+                        <span class="full">&starf;&starf;&starf;&starf;</span><span class="empty">&starf;</span></td>
+                </tr>
+                <tr>
+                    <td>Leadership</td>
+                    <td class="star">
+                        <span class="full">&starf;&starf;</span><span class="empty">&starf;&starf;&starf;</span></td>
+                </tr>
+                <tr>
+                    <td>Time Management</td>
+                    <td class="star">
+                        <span class="full">&starf;&starf;&starf;&starf;</span><span class="empty">&starf;</span></td>
+                </tr>
+            </table>
+        </div>
+            <!-- Technical Skills Section -->
+            <div class="container technicalSkill">
+                <h1 class="title cvTitle" id="myTechnicalSkill">Technical Skills</h1>
+                <table class="skillTable">
+                    <tr>
+                        <td>HTML</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;&starf;&starf;</span><span class="empty">&starf;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>CSS</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;&starf;</span><span class="empty">&starf;&starf;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Javascript</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;</span><span class="empty">&starf;&starf;&starf;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Java</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;&starf;</span><span class="empty">&starf;&starf;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Python</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;&starf;</span><span class="empty">&starf;&starf;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>C#</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;</span><span class="empty">&starf;&starf;&starf;</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Unity Game Engine</td>
+                        <td class="star">
+                            <span class="full">&starf;&starf;&starf;</span><span class="empty">&starf;&starf;</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        <!-- the qualifications are presented as timelines -->
+        <div class="container qualifications" >
+            <h1 class="title cvTitle" id="myQualifications" style="padding: 0 0 20px 0;">Qualifications</h1>
+            <ul class="certs">
+                <li class="tabs qua bRight">
+                    <p>Year</p>
+                    <h2>2019 - 2022</h2>
+                    <p>Institution</p>
+                    <h2>London Metropolitan University</h2>
+                    <p>Certification</p>
+                    <h2>BSc. (Hons.) Computing</h2>
+                </li>
+                <li class="tabs qua bLeft">
+                    <p>Year</p>
+                    <h2>2017 - 2018</h2>
+                    <p>Institution</p>
+                    <h2>Arniko Awasiya Higher Secondary School</h2>
+                    <p>Certification</p>
+                    <h2>NEB Grade 12/ Secondary Education Completion</h2>
+                </li>
+                <li class="tabs qua bRight">
+                    <p>Year</p>
+                    <h2>2016 - 2017</h2>
+                    <p>Institution</p>
+                    <h2>Arniko Awasiya Higher Secondary School</h2>
+                    <p>Certification</p>
+                    <h2>NEB Grade 11</h2>
+                </li>
+                <li class="tabs qua bLeft" style="border-bottom: none;">
+                    <p>Year</p>
+                    <h2>2015 - 2016</h2>
+                    <p>Institution</p>
+                    <h2>Everest Higher Secondary School</h2>
+                    <p>Certification</p>
+                    <h2>SLC Grade 10</h2>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- this protion contains the description os the things i have made in the past -->
+        <div class="container works" >
+            <div class="work">
+                <h1 class="title cvTitle" id="myWorks">My Works</h1>
+                <div class="card worksCard">
+                    <div class="info">
+                        <h1 class="date">
+                            2019
+                        </h1>
+                        <h1 class="title2">
+                            Blocky's Adventure
+                        </h1>
+                        <p class="desc">
+                            Blocky's Adevnture was my first take on game development,
+                            After following a couple tutorials online I decided it was time 
+                            to make something of my own. This game was inspired by flappy bird.
+                            I was not able to make more than 10 levels in this game because I 
+                            ran out of ideas for good level design.
+                        </p>
+                    </div>
+                </div>
+                <div class="card worksCard">
+                    <div class="info">
+                        <h1 class="date">
+                            2019
+                        </h1>
+                        <h1 class="title2">
+                            Grid Jump Retrowave Edition
+                        </h1>
+                        <p class="desc">
+                            Grid Jump Retrowave Edition was my second work in game development.
+                            This time I made something that was completely based on my imagination. 
+                            Although it was a platformer which used voxel models that made it 
+                            look like Minecraft and Blade Runner's illegitimate child.
+                        </p>
+                    </div>
+                </div>
+                <div class="card worksCard">
+                    <div class="info">
+                        <h1 class="date">
+                            2019
+                        </h1>
+                        <h1 class="title2">
+                            Database for a Polyclinic
+                        </h1>
+                        <p class="desc">
+                            I did this project as my first and second Course work 
+                            for my Introduction to Information Systems Module for Year 2019
+                            This project was my first take on database development. 
+                            Main purpose of this database was to replace the conventional 
+                            file based database with a effecient and secure database that
+                            works electronically.
+                        </p>
+                    </div>
+                </div>
+                <div class="card worksCard">
+                    <div class="info">
+                        <h1 class="date">
+                            2020
+                        </h1>
+                        <h1 class="title2">
+                            Appointment System
+                        </h1>
+                        <p class="desc">
+                            I did this project as my first course work for my Programming Module for Year 2019/2020
+                            This is my latest project, Appointment System is a basic
+                            application that is used to appoint a staff, either full time or part time,
+                            in a company. Thisapplication can also be used to get the information
+                            of the staff that has been 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- this portion contains my social media links -->
+        <div class="container contacts" >
+            <h1 class="title cvTitle" id="myContacts" style="text-align: right;">My Social Media</h1>
+            <!-- The Accordion Menu -->
+            <div class="accordionContainer">
+                <ul class="accordion">
+                    <li class="tab">
+                        <!-- social media link -->
+                        <div class="social facebook">
+                            <a href="http://"></a>
+                        </div>
+                        <!-- social media description -->
+                        <div class="content">
+                            <h1>
+                                Facebook
+                            </h1>
+                            <p>
+                                Follow Me On Facebook
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <!-- social media link -->
+                        <div class="social twitter">
+                            <a href="http://"></a>
+                        </div>
+                        <!-- social media description -->
+                        <div class="content">
+                            <h1>
+                                Twitter
+                            </h1>
+                            <p>
+                                Follow Me on Twitter
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <!-- social media link -->
+                        <div class="social reddit">
+                            <a href="http://"></a>
+                        </div>
+                        <!-- social media description -->
+                        <div class="content">
+                            <h1>
+                                Reddit
+                            </h1>
+                            <p>
+                                Follow Me On Reddit
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <!-- social media link -->
+                        <div class="social instagram">
+                            <a href="http://"></a>
+                        </div>
+                        <!-- social media description -->
+                        <div class="content">
+                            <h1>
+                                Instagram
+                            </h1>
+                            <p>
+                                Follow Me On Instagram
+                            </p>
+                        </div>
+                    </li>
+                    <li class="tab">
+                        <!-- social media link -->
+                        <div class="social youtube">
+                            <a href="http://"></a>
+                        </div>
+                        <!-- social media description -->
+                        <div class="content">
+                            <h1>
+                                Youtube
+                            </h1>
+                            <p>
+                                Subscribe to my Youtube channel.
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- the footer -->
+    <div class="footer">
+        <div class="me">
+            2020 Anwesh Dahal
+        </div>
+        <div class="goUp">
+            <a href="#" class="goUpButton">
+                &#9651;
+            </a>
+        </div>
+    </div>
+        <!-- internal Javascript -->
+        <script>
+            // list if interests
+            var myInterests = ['STUDENT', 'TECHNOLOGY ENTHUSIAST', 'MUSIC LOVER'];
+            // index of the list
+            var index = 0;
+            // dynamically adding content on a tag with no element
+            textChange()
+            // calls the function in every 2.1 seconds
+            setInterval(textChange, 1500)
+            //  the function to change the content
+            function textChange() {
+                if (index < myInterests.length) {
+                    index += 1;
+                } else {
+                    index = 1
+                }
+                document.getElementById("interests").innerHTML = myInterests[index - 1];
+            }
+        </script>
+</body>
+</html>

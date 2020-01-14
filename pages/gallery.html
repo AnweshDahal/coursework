@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- meta tags -->
+        <meta name="description" content="Some screenshots of the games i made">
+        <meta name="keywords" content="portfolio,technology,cv,gallery,blog,gallery,research">
+        <meta name="author" content="Anwesh Dahal">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- external css -->
+        <link rel="stylesheet" href="../css/main.css">
+        <!-- internal css -->
+        <style>
+            /* polaroid photo style frame */
+            .viewImage{
+                background-color: #fffece;
+                text-align: center;
+                padding: 25px 10px;
+                width: 50%;
+                margin: 10px auto 20px auto;
+                border: #a3a3a3 solid 1px;
+                border-radius: 3px;
+                box-shadow: -5px -5px 10px #dddddd99, 5px 5px 10px #888;
+            }
+
+            .showcase{
+                width: 100%;
+            }
+
+            .mainImage{
+                width: 100%;
+                text-align: center;
+            }
+
+            /* caption of the photo */
+            .viewImage h1{
+                margin: 30px auto 40px auto;
+                font-family: 'Permanent Marker', cursive;
+            }
+
+
+
+            /* the thumbnails that have a negative film style */
+            .thumbnail{
+                text-align: center;
+            }
+
+            /* the list that houses the thumbnails */
+            .thumb{
+                list-style-type: none;
+                display: flex;
+                flex-direction: row;
+                height: 150px;
+                background-image: url('../img/film4.png');
+
+            }
+
+            /* pictures of the thumbnail */
+            .pic{
+                margin: auto 5px;
+            }
+
+
+            .thumbnailImage{
+                height: 75px;
+                margin: 5px;
+            }
+        </style>
+        <script src="../js/main.js"></script>
+        <title>Gallery</title>
+    </head>
+
+    <body onload="onStartUp()">
+        <!-- the header that contains the page name and nav links -->
+        <div class="header">
+            <!-- the name of the current page -->
+            <div class="logo">
+                Gallery
+            </div>
+            <!-- navigation links -->
+            <div class="nav">
+                <a href="../index.html">Home</a>
+                <a href="cv.html">CV</a>
+                <a href="blog.html">Blog</a>
+                <a href="research.html">Research</a>
+                <a href="contact.html">Contact Me</a>
+                <!-- the current page wont link to any page -->
+                <a href="#">Gallery</a>
+            </div>
+        </div>
+
+        <!-- The main Contents of the page -->
+        <div class="mainContent">
+            <!-- the album -->
+            <div class="container" style="width: 80%; display: flex; flex-direction: column;">
+                <!-- album navigation -->
+                <div class="container albumNav" style="display: flex; flex-direction: row; width: 100%;">
+                    <!-- switch to previous album -->
+                    <div class="prevAlbum" style="width: 50%;">
+                        <button id="previous" class="btn" style="width: 150px;" onclick="onLeftButtonClick()">
+                            Previous
+                        </button>
+                    </div>
+                    <!-- switch to next album -->
+                    <div class="nextPage" style="text-align: right; width: 50%;">
+                        <button id="next" class="btn" style="width: 150px;" onclick="onRightButtonClick()">
+                            Next
+                        </button>
+                    </div>
+                    
+                                    
+                </div>
+                <!-- display photo -->
+                <div class="showcase">
+                    <!-- the name of the project -->
+                    <div class="heading">
+                        <h1 style="text-align: center;" id="projectTitle">
+                            Grid Jump Retrowave Edition
+                        </h1>
+                        <a href="#projectTitle" id="refer"></a>
+                    </div>
+                    <!-- the image -->
+                    <div class="viewImage" id="show">
+                        <img src="../img/GJ2.png" alt="" id="view" class="mainImage">
+                        <!-- the caption of the image -->
+                        <h1 class="imgCaption" id="caption">
+                            Main Menu
+                        </h1>
+                    </div>
+                </div>
+                <div class="thumbnail">
+                    <ul class="thumb">
+                        <li class="pic">
+                            <img src="../img/GJ1.png" alt="" id="img1" class="thumbnailImage" onclick="onThumbnailClick(this); redirect()">
+                        </li>
+                        <li class="pic">
+                            <img src="../img/GJ2.png" alt="" id="img2" class="thumbnailImage" onclick="onThumbnailClick(this); redirect()">
+                        </li>
+                        <li class="pic">
+                            <img src="../img/GJ3.png" alt="" id="img3" class="thumbnailImage" onclick="onThumbnailClick(this); redirect()">
+                        </li>
+                        <li class="pic">
+                            <img src="../img/GJ4.png" alt="" id="img4" class="thumbnailImage" onclick="onThumbnailClick(this); redirect()">
+                        </li>
+                        <li class="pic">
+                            <img src="../img/GJ5.png" alt="" id="img5" class="thumbnailImage" onclick="onThumbnailClick(this); redirect()">
+                        </li>
+                        <li class="pic">
+                            <img src="../img/GJ6.png" alt="" id="img6" class="thumbnailImage" onclick="onThumbnailClick(this); redirect()">
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- The footer -->
+        <div class="footer">
+            <div class="me">
+                2020 Anwesh Dahal
+            </div>
+            <div class="goUp">
+                <a href="#" class="goUpButton">
+                    <!-- <i class="fas fa-caret-up"></i> -->
+                    &#9651;
+                </a>  
+            </div>
+        </div>
+    </body>
+</html>
