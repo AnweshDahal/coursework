@@ -1,160 +1,157 @@
 <!-- The Home Page -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- meta tags are used to optimize the webpage or the website for search engine -->
-        <!-- in other hand thay provide the information about the website contents -->
-        <!-- for describing what is present in the website -->
-        <meta name="description" content="My portfolio and blog about technology">
-        <meta name="keywords" content="portfolio,technology,cv,gallery,blog,gallery,research">
-        <meta name="author" content="Anwesh Dahal">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- external css -->
-        <!-- <link rel="stylesheet" href="css/home.css"> -->
-        <style>
-            /* linking Roboto Font */
-            @font-face{
-                font-family: 'Roboto';
-                src: url(../fonts/Roboto/Roboto-Regular.ttf)format('truetype');
-            }
 
-            /* linking Playfair Display Font */
-            @font-face{
-                font-family: 'Playfair Display';
-                src: url(../fonts/Playfair_Display/PlayfairDisplay-Regular.ttf)format('truetype');
-            }
+<head>
+    <!-- meta tags are used to optimize the webpage or the website for search engine -->
+    <!-- in other hand thay provide the information about the website contents -->
+    <!-- for describing what is present in the website -->
+    <meta name="description" content="My portfolio and blog about technology">
+    <meta name="keywords" content="portfolio,technology,cv,gallery,blog,gallery,research">
+    <meta name="author" content="Anwesh Dahal">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- external css -->
+    <!-- <link rel="stylesheet" href="css/home.css"> -->
+    <style>
+        /* linking Roboto Font */
+        @font-face {
+            font-family: 'Roboto';
+            src: url(fonts/Roboto/Roboto-Regular.ttf)format('truetype');
+        }
 
-            /* declaring global variables to reduce code redundancy */
-            :root{
-                --primary-color: #222222;
-                --faint-border-color: #cdcdcd;
-                --default-border-color: #d3d3d3;
-                --shadow-color: #a9a9a9;
-                --shadow-color-dark: #969595;
-                -shadow-color-darker: #929292;
-                --highlight-color: #ffffff;
-                --roboto-font: 'Roboto', sans-serif;
-                --playfair-font: 'Playfair Display', serif;
-            }
-            /* Resetting the value of padding and margin for all component to zero */
-            *{
-                margin: 0;
-            }
+        /* linking Playfair Display Font */
+        @font-face {
+            font-family: 'Playfair Display';
+            src: url(fonts/Playfair_Display/PlayfairDisplay-Regular.ttf)format('truetype');
+        }
 
-            a{
-                color: var(--primary-color);
-            }
+        /* declaring global variables to reduce code redundancy */
+        :root {
+            --primary-color: #222222;
+            --faint-border-color: #cdcdcd;
+            --default-border-color: #d3d3d3;
+            --shadow-color: #a9a9a9;
+            --shadow-color-dark: #969595;
+            -shadow-color-darker: #929292;
+            --highlight-color: #ffffff;
+            --roboto-font: 'Roboto', sans-serif;
+            --playfair-font: 'Playfair Display', serif;
+        }
 
-            h1{
-                font-size: 3rem;
-                font-family: var(--playfair-font);
-            }
+        /* Resetting the value of padding and margin for all component to zero */
+        * {
+            margin: 0;
+        }
 
-            p{
-                font-size: 1.5rem;
-                font-family: var(--roboto-font);
-            }
+        a {
+            color: var(--primary-color);
+        }
 
-            /* making the page occupy the whole screen */
-            html, body{
-                margin: 0;
-                height: 100%;
-            }
-            /* setting universal properties for things like fonts */
-            body{
-                background-image: linear-gradient(to right bottom, #ffffff, #f7f7f7, #f0f0f0, #e8e8e8, #e1e1e1);
-                color: var(--primary-color);
-                font-family: var(--roboto-font);
-                padding: 10px;
-                overflow: hidden;
-                
-            }
+        h1 {
+            font-size: 3rem;
+            font-family: var(--playfair-font);
+        }
 
-            .topHeader{
-                text-align: center;
-            }
+        p {
+            font-size: 1.5rem;
+            font-family: var(--roboto-font);
+        }
 
-            .nav{
-                justify-content: center;
-                width: 80%;
-                margin: 3.8% auto 0 auto;
-                text-align: center;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                padding: auto;
-            }
+        /* making the page occupy the whole screen */
+        html,
+        body {
+            margin: 0;
+            height: 100vh;
+        }
 
-            .card{
-                background-image: linear-gradient(to right bottom, #ffffff, #fcfcfc, #fafafa, #f7f7f7, #f5f5f5, #f4f4f4, #f2f2f2, #f1f1f1, #f0f0f0, #f0f0f0, #efefef, #eeeeee);
-                width: 20%;
-                font-size: 8rem;
-                border: var(--default-border-color) solid 1px;
-                border-radius: 10px;
-                box-shadow: 5px 5px 15px var(--shadow-color), -5px -5px 9px var(--highlight-color);
-                margin: 1% 1%;
-                padding: 20px;
-                transition: all 0.5s ease-in-out;
-                display: flex;
-            }
+        /* setting universal properties for things like fonts */
+        body {
+            background-image: linear-gradient(to right bottom, #ffffff, #f7f7f7, #f0f0f0, #e8e8e8, #e1e1e1);
+            color: var(--primary-color);
+            font-family: var(--roboto-font);
+            padding: 10px;
+            overflow: hidden;
 
-            .card:hover{
-                box-shadow: 7px 7px 16px var(--shadow-color-dark), -5px -5px 11px var(--highlight-color);
-            }
+        }
 
-            .card:active{
-                box-shadow: 3px 3px 11px var(--shadow-color-darker), /*-5px -5px 11px var(--highlight-color);*/
-            }
+        .topHeader {
+            text-align: center;
+        }
 
-            .card a{
-                height: 100%;
-                width: 100%;
-                text-align: center;
-                
-            }
+        .nav {
+            justify-content: center;
+            width: 80%;
+            margin: 3.8% auto 0 auto;
+            text-align: center;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            padding: auto;
+        }
 
-            .card a img{
-                height: 128px;
-                opacity: 0.85;
-            }
-        </style>
-        <script>
-            // this script is used to notify the user that this website works best in firefox
-                var message1 = "Looks like you are using ";
-                var message2 = ", this website performs best on Mozilla Firefox.\nHowever an active internet connection is recommended for better performance. ";
-                function preInformation() {
-                    // the userAgent can be used to get basic infromation about the browser and the system its running on
-                    // the navigator.userAgent.indexOf(<browserName>) returns a value if the <browserName> matches with the name of your browser
-                    // else it returns -1
-                    if (navigator.userAgent.includes("Chrome") && !navigator.userAgent.includes("OPR")) {
-                        alert(message1 + "Google Chrome" + message2);
-                    } else if (navigator.userAgent.includes("OPR")) {
-                        alert(message1 + "Opera Browser" + message2);
-                    } else if (navigator.userAgent.includes("WOW")) {
-                        alert(message1 + "Microsoft Internet Explorer" + message2);
-                    } else if (navigator.userAgent.includes("Edge")) {
-                        alert(message1 + "Microsoft Edge" + message2);
-                    } else if (navigator.userAgent.includes("Firefox")) {
-                        alert(message1 + "Mozilla Firefox. Thank you for doing so as this website performs best on this browser.\nHowever an active internet connection is recommended for better performance.");
-                    }
-                }
-        </script>
-        <style>
-            a{
-                text-decoration: none;
-            }
-        </style>
+        .card {
+            background-image: linear-gradient(to right bottom, #ffffff, #fcfcfc, #fafafa, #f7f7f7, #f5f5f5, #f4f4f4, #f2f2f2, #f1f1f1, #f0f0f0, #f0f0f0, #efefef, #eeeeee);
+            width: 20%;
+            font-size: 8rem;
+            border: var(--default-border-color) solid 1px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 15px var(--shadow-color), -5px -5px 9px var(--highlight-color);
+            margin: 1% 1%;
+            padding: 20px;
+            transition: all 0.5s ease-in-out;
+            display: flex;
+        }
+
+        .card:hover {
+            box-shadow: 7px 7px 16px var(--shadow-color-dark), -5px -5px 11px var(--highlight-color);
+        }
+
+        .card:active {
+            box-shadow: 3px 3px 11px var(--shadow-color-darker),
+                /*-5px -5px 11px var(--highlight-color);*/
+        }
+
+        .card a {
+            height: 100%;
+            width: 100%;
+            text-align: center;
+
+        }
+
+        .card a img {
+            height: 128px;
+            opacity: 0.85;
+        }
+
+        .footer .logo {
+            width: 98.5%;
+            position: absolute;
+            right: 5px;
+            bottom: 0;
+        }
+
+        .footer .logo p {
+            text-align: right;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
         <!-- the title of the page -->
-        <title>Home</title>
+    <title>Home</title>
     </head>
     <!-- the main contents go here -->
-    <body onload="preInformation()">
+
+    <body onload="alert('Hello! User Welcome To My Website.')">
         <!-- the header -->
         <div class="topHeader">
             <div class="logo" style="text-align: left; margin: 0 auto;">
-                <h1 >Portfolio <span style="font-size: 16px; font-style: italic;font-family: var(--roboto-font);font-weight: normal;">Less is More</span></h1>
+                <h1>Portfolio <span
+                        style="font-size: 16px; font-style: italic;font-family: var(--roboto-font);font-weight: normal;">Less
+                        is More</span></h1>
             </div>
-            
+
         </div>
         <!-- navigation Buttons -->
         <div class="nav">
@@ -162,7 +159,7 @@
             <div class="card" title="Home">
                 <a href="#">
                     <img src="img/Font Awesome/home.svg" alt="">
-                </a> 
+                </a>
             </div>
             <!-- CV button -->
             <div class="card" title="CV">
@@ -197,7 +194,7 @@
         </div>
         <!-- the footer -->
         <div class="footer">
-            <div class="logo" style="text-align: left; margin: 0 auto; text-align: right; margin-top: 60px;">
+            <div class="logo" style="text-align: left; margin: 0 auto;">
                 <p>2020 Anwesh Dahal</p>
             </div>
         </div>
